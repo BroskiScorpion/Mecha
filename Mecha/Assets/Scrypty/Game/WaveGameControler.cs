@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,13 +7,29 @@ public class WaveGameControler : MonoBehaviour {
     public List<GameObject> active;
     public List<GameObject> prepared;
     public GameObject[] enemyPrefabs;
+	public List<String> waveInfo;
+	public List<String> packInfo;
     public int waveNumber;
     public int waveSize;
     public int[] wave;
     public Transform[] spawnPoints;
 	void Start ()
     {
+		prepWaveInfo();
         PrepareWave(0);
+	}
+	public prepAllWaveInfo()
+	{
+		String AllWaveInfo = File.ReadAllText("waveinfo.txt");
+		String temp="";
+		int i=0;
+		while(i<AllWaveInfo.Length)
+		{
+			if(true)
+			{
+				i++;
+			}
+		}
 	}
     public GameObject getNextEnemy()
     {
@@ -51,7 +67,11 @@ public class WaveGameControler : MonoBehaviour {
     {
         return null;
     }
-	void Update () {
-		
+	public void SpawnPack(int rozmiar)
+	{
+		for(int i=0;i<rozmiar;i++)
+		{
+			Spawn();
+		}
 	}
 }
