@@ -25,11 +25,25 @@ public class PlayerControler : MonoBehaviour {
         rb.velocity = new Vector3(x*speed, 0.0f, y * speed);
         if(Input.GetButton("Fire1"+playernumber))
         {
-            tr1.Trigger();
+            if(tr1==null)
+            {
+                tr1=GetComponentInChildren<MechaSpawner>().left.GetComponentInChildren<TriggerController>();
+            }
+            else
+            {
+                tr1.Trigger();
+            }
         }
         if(Input.GetButton("Fire2"+playernumber))
         {
-            tr2.Trigger();
+            if (tr2 == null)
+            {
+                tr2 = GetComponentInChildren<MechaSpawner>().right.GetComponentInChildren<TriggerController>();
+            }
+            else
+            {
+                tr2.Trigger();
+            }
         }
 	}
 }

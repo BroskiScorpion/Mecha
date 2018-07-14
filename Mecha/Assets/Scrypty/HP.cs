@@ -6,17 +6,13 @@ public class HP : MonoBehaviour {
     
     public float maxHealth;
     public float currentHealth;
-    public DeathControl d;
-	void Start ()
-    {
-        Spawn();
-	}
+
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        if(currentHealth<=0.0f && this.CompareTag("Enemy"))
+        if (currentHealth<=0 && this.gameObject.CompareTag("Enemy"))
         {
-            (d as EnemyDeathControl).Death();
+            GetComponent<EnemyDeathControl>().Death();
         }
     }
     void Spawn()

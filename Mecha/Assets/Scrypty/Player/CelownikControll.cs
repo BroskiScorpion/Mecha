@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CelownikControll : MonoBehaviour {
 
-    private Camera c;
+    public Camera c;
     public bool pad;
     public float oddalenie;
     private void Start()
